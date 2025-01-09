@@ -18,7 +18,7 @@ namespace RMS.Controllers
             //{
             //    HttpContext.Session.SetString("UserId", user.Id.ToString());
             //    HttpContext.Session.SetString("UserFullName", user.FullName);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("ATenantLease", "ATenant");
             //}
 
             //ViewBag.ErrorMessage = "Invalid email or password. Please check your credentials or create an account";
@@ -33,6 +33,12 @@ namespace RMS.Controllers
         public IActionResult Register()
         {
             return View();
+        }
+
+        public IActionResult Logout()
+        {
+            //HttpContext.Session.Clear();
+            return RedirectToAction("Login");
         }
     }
 }

@@ -21,11 +21,17 @@ app.UseAuthorization();
 app.MapStaticAssets();
 
 
-//PTenant
+////PTenant
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=PTenant}/{action=PTenantHomePage}/{id?}");
+////   .WithStaticAssets();
+
+//ATenant
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=PTenant}/{action=PTenantHomePage}/{id?}");
- //   .WithStaticAssets();
+    pattern: "{controller=ATenant}/{action=ATenantLease}/{id?}");
+//   .WithStaticAssets();
 
 ////Staff
 //app.MapControllerRoute(

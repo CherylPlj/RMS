@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Cozy Homes - Add Unit";
+    Layout = "~/Views/Shared/_LayoutPM.cshtml";
+}
+@* @model RMS.Unit *@
+
+<div class="modal">
+    <div class="modal-content">
+        <h2>Add a Unit</h2>
+        <form id="addUnitForm" method="post" asp-action="AddUnit" asp-controller="Unit">
+            <div class="form-group">
+                <label for="UnitName">Unit Name *</label>
+                <input type="text" id="UnitName" name="UnitName" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="UnitType">Unit Type *</label>
+                <input type="text" id="UnitType" name="UnitType" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="UnitOwner">Unit Owner *</label>
+                <input type="text" id="UnitOwner" name="UnitOwner" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="Town">Town *</label>
+                <input type="text" id="Town" name="Town" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="Location">Location *</label>
+                <input type="text" id="Location" name="Location" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <textarea id="Description" name="Description" class="form-control"></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button type="submit" class="btn btn-primary">Add Unit</button>
+            </div>
+        </form>
+    </div>
+</div>
