@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using RMS.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add DbContext to the service container
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); // Use the appropriate connection string
 
 var app = builder.Build();
 
@@ -14,23 +21,18 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
+//app.MapStaticAssets();
 
-
-////PTenant
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=PTenant}/{action=PTenantHomePage}/{id?}");
-////   .WithStaticAssets();
-
-//ATenant
+//PTenant
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=ATenant}/{action=ATenantLease}/{id?}");
+    pattern: "{controller=PTenant}/{action=PTenantHomePage}/{id?}");
 //   .WithStaticAssets();
 
 ////Staff
@@ -38,16 +40,14 @@ app.MapControllerRoute(
 //    name: "default",
 //    pattern: "{controller=Staff}/{action=SMaintenanceAssignment}/{id?}");
 
-////Property Manager
+////property manager
 //app.MapControllerRoute(
 //    name: "default",
-//    pattern: "{controller=PropertyManager}/{action=PMDashboard}/{id?}");
+//    pattern: "{controller=propertymanager}/{action=pmdashboard}/{id?}");
 
 ////Auth
 //app.MapControllerRoute(
 //    name: "default",
-//    pattern: "{controller=Login}/{action=Login}/{id?}")
-//    .WithStaticAssets();
+//    pattern: "{controller=Login}/{action=Login}/{id?}");
 
 app.Run();
-

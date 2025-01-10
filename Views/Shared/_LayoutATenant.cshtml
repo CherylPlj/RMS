@@ -6,8 +6,8 @@
     <title>Cozy Homes - Lease</title>
     <meta name="theme-color" content="#000000" />
     <!-- Font Awesome CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" asp-append-version="true">
-    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css">
 
 </head>
 <body>
@@ -27,7 +27,7 @@
             <!-- Navigation -->
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a asp-controller="ATenant" asp-action="ATenantHome">Home</a></li>
                     <li><a href="#">Units</a></li>
                     <li><a asp-controller="ATenant" asp-action="ATenantLease">Lease</a></li>
                     <li><a href="#">Payment History</a></li>
@@ -58,7 +58,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
     </body>
 </html>

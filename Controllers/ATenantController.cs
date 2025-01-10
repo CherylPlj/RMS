@@ -8,5 +8,10 @@ namespace RMS.Controllers
         {
             return View();
         }
+
+        public IActionResult ATenantHome()
+        {
+            return View();
+        }
     }
 }
