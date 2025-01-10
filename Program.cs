@@ -24,26 +24,32 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+//app.UseSession();
 app.UseAuthorization();
 
 //app.MapStaticAssets();
 
 //PTenant
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=PTenant}/{action=PTenantHomePage}/{id?}");
+////   .WithStaticAssets();
+
+//ATenant
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=PTenant}/{action=PTenantHomePage}/{id?}");
-//   .WithStaticAssets();
+    pattern: "{controller=ATenant}/{action=ATenantLease}/{id?}");
+////   .WithStaticAssets();
 
 ////Staff
 //app.MapControllerRoute(
 //    name: "default",
 //    pattern: "{controller=Staff}/{action=SMaintenanceAssignment}/{id?}");
 
-////property manager
+//property manager
 //app.MapControllerRoute(
 //    name: "default",
-//    pattern: "{controller=propertymanager}/{action=pmdashboard}/{id?}");
+//    pattern: "{controller=PropertyManager}/{action=PMDashboard}/{id?}");
 
 ////Auth
 //app.MapControllerRoute(

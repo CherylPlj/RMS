@@ -8,19 +8,19 @@ namespace PMS.Controllers
         {
             return View();
         }
+        public IActionResult PMTenants()
+        {
+            return View();
+        }
         public IActionResult PMManageLease()
         {
             return View();
         }
-        public IActionResult PMAssignMaintenance()
-        {
-            return View();
-        }
-
         public IActionResult PMManageUnits()
         {
             return View();
         }
+    
         public IActionResult PMPayments()
         {
             return View();
@@ -30,9 +30,16 @@ namespace PMS.Controllers
         {
             return View();
         }
-        public IActionResult PMTenants()
+        public IActionResult PMAssignMaintenance()
         {
             return View();
         }
+
+        public IActionResult PMManageUsers()
+        {
+            return View();
+        }
+
+
     }
 }
