@@ -35,11 +35,11 @@ app.UseAuthorization();
 //    pattern: "{controller=PTenant}/{action=PTenantHomePage}/{id?}");
 ////   .WithStaticAssets();
 
-//ATenant
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=ATenant}/{action=ATenantLease}/{id?}");
-////   .WithStaticAssets();
+////ATenant
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=ATenant}/{action=ATenantHome}/{id?}");
+//////   .WithStaticAssets();
 
 ////Staff
 //app.MapControllerRoute(
@@ -47,9 +47,9 @@ app.MapControllerRoute(
 //    pattern: "{controller=Staff}/{action=SMaintenanceAssignment}/{id?}");
 
 //property manager
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=PropertyManager}/{action=PMDashboard}/{id?}");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=PropertyManager}/{action=PMDashboard}/{id?}");
 
 ////Auth
 //app.MapControllerRoute(

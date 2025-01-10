@@ -2,19 +2,8 @@
     ViewData["Title"] = "Cozy Homes - Units";
     Layout = "~/Views/Shared/_LayoutPM.cshtml";
 }
-
-@model List<Unit>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Units List</title>
-    <link rel="stylesheet" href="~/css/units.css" asp-append-version="true">
-</head>
-<body>
-    <div class="container">
+>
+    < class="container">
         <header>
             <h1>Units List</h1>
             <button id="add-unit" class="btn-add">Add Unit</button>
@@ -41,14 +30,9 @@
                 </tr>
             </thead>
             <tbody>
-                @* @foreach (var unit in Model) *@
-                {
+                
                     <tr>
-                        @* <td>@unit.Id</td> *@
-                        @* <td><a href="/Units/Details/@unit.Id">@unit.Name</a></td> *@
-                        @* <td>@unit.Price.ToString("C")</td> *@
-                        @* <td class="status @unit.Status.ToLower()">@unit.Status</td> *@
-                        @* <td> *@
+                       
                             <td>1</td>
                             <td>Cozy Suite 10
                                 <button>View Details</button>
@@ -59,7 +43,7 @@
                             <button class="btn-delete">&#128465;</button>
                         </td>
                     </tr>
-                }
+                
             </tbody>
         </table>
 
@@ -75,10 +59,9 @@
             </div>
             <button class="next">Next</button>
         </div>
-    </div>
+    
 
    
 
     <script src="~/js/units.js" asp-append-version="true"></script>
-</body>
-</html>
+
