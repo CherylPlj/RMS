@@ -61,7 +61,7 @@ namespace RMS.Controllers
             }
             else if (user.Role == "Tenant")
             {
-                return RedirectToAction("PTenantHomePage", "PTenant");
+                return RedirectToAction("ATenantHome", "ATenant");
             }
 
             // Fallback redirect
@@ -158,7 +158,7 @@ namespace RMS.Controllers
 
         public IActionResult Logout()
         {
-            //HttpContext.Session.Clear();
+            HttpContext.Session.Clear();
             return RedirectToAction("Login");
         }
     }

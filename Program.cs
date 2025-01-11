@@ -10,6 +10,16 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); // Use the appropriate connection string
 
+
+// Add session services to the container
+builder.Services.AddDistributedMemoryCache(); // Adds in-memory caching for session
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set session timeout as per your requirement
+    options.Cookie.HttpOnly = true; // Only accessible by the server
+    options.Cookie.IsEssential = true; // Necessary for session management
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,21 +34,23 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-//app.UseSession();
-app.UseAuthorization();
 
+// Add session middleware to the request pipeline
+app.UseSession(); // This should come before UseAuthorizationapp.UseAuthorization();
+
+app.UseAuthorization();
 //app.MapStaticAssets();
 
-////PTenant
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=PTenant}/{action=PTenantHomePage}/{id?}");
-////   .WithStaticAssets();
-
-////ATenant
+//PTenant
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=ATenant}/{action=ATenantHome}/{id?}");
+    pattern: "{controller=PTenant}/{action=PTenantHomePage}/{id?}");
+//   .WithStaticAssets();
+
+////ATenant
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=ATenant}/{action=ATenantHome}/{id?}");
 ////   .WithStaticAssets();
 
 ////Staff
