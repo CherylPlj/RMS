@@ -8,6 +8,7 @@
     <meta name="theme-color" content="#000000" />
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" asp-append-version="true">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/pm.css" asp-append-version="true" />
@@ -16,21 +17,19 @@
 </head>
 
 
-<body>
-
+<header>
     <!-- Top Header -->
     <div class="top-header">
         <!-- Optional: Add top header content here -->
     </div>
 
     <!-- Main Header -->
-    <header>
         <div class="main-header" style="position: sticky; ">
             <!-- Sidebar Header: Logo and Brand -->
-            <div class="sidebar-header">
+        <div class="sidebar-header" >
                 <img src="~/images/cozy-logo.png" alt="logo">
                 <h1>Cozy Homes</h1>
-                <div class="hamburger-icon" onclick="toggleSidebar()">
+            <div class="hamburger-icon" id="hamburger" >
                     <i class="fas fa-bars"></i>
                 </div>
 
@@ -52,93 +51,90 @@
                 </ul>
             </nav>
         </div>
-    </header>
 
 
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
         <ul>
             <li>
-                <a asp-controller="PropertyManager" asp-action="PMDashboard" class="nav-link active">
+                <a asp-controller="PropertyManager" asp-action="PMDashboard" class="nav-link">
                     <i class="fas fa-dashboard"></i>
-                    Dashboard
+                    <span class="link-text">Dashboard</span>
                 </a>
             </li>
             <li>
                 <a asp-controller="PropertyManager" asp-action="PMmanageUnits" class="nav-link">
                     <i class="fas fa-house"></i>
-                    Units
+                    <span class="link-text">Units</span>
                 </a>
             </li>
             <li>
                 <a asp-controller="PropertyManager" asp-action="PMTenants" class="nav-link">
                     <i class="fas fa-people-roof"></i>
-                    Tenants
+                    <span class="link-text">Tenants</span>
                 </a>
             </li>
             <li>
                 <a asp-controller="PropertyManager" asp-action="PMManageLease" class="nav-link">
                     <i class="fas fa-clipboard"></i>
-                    Lease
+                    <span class="link-text">Lease</span>
                 </a>
             </li>
             <li>
                 <a asp-controller="PropertyManager" asp-action="PMPayments" class="nav-link">
                     <i class="fas fa-receipt"></i>
-                    Payments
+                    <span class="link-text">Payments</span>
                 </a>
             </li>
             <li>
                 <a asp-controller="PropertyManager" asp-action="PMRequest" class="nav-link">
                     <i class="fas fa-hammer"></i>
-                    Request
+                    <span class="link-text">Request</span>
                 </a>
             </li>
             <li>
                 <a asp-controller="PropertyManager" asp-action="PMAssignMaintenance" class="nav-link">
                     <i class="fas fa-wrench"></i>
-                    Staff
+                    <span class="link-text">Staff</span>
                 </a>
             </li>
             <li>
                 <a asp-controller="PropertyManager" asp-action="PMManageUsers" class="nav-link">
-                    <i class="fas fa-person"></i>
-                    Users
+                    <i class="fas fa-user"></i> <!-- Adjusted icon to a more relevant user icon -->
+                    <span class="link-text">Users</span>
                 </a>
             </li>
+
         </ul>
     </div>
-
-    <section>
+</header>
+<body>
+    <main> 
+    <section class="body">
         <div class="container">
             <main role="main" class="pb-3">
                 @RenderBody()
             </main>
         </div>
+
     </section>
+    </main>
+    <section> 
     <!-- Footer -->
     <footer>
-        <div class="container">
+        <div class="container" style="position: sticky; bottom:0; ">
             <p>&copy; 2025 Cozy Homes. All rights reserved.</p>
         </div>
     </footer>
-
+    </section>
     <script>
-            document.addEventListener("DOMContentLoaded", function () {
+        function toggleSidebar() {
             const sidebar = document.getElementById("sidebar");
-            const hamburger = document.getElementById("hamburger");
-            const mainContent = document.querySelector(".main-content");
+            sidebar.classList.toggle("collapsed");
+        }
 
-            hamburger.addEventListener("click", function () {
-                sidebar.classList.toggle("hidden");
-
-                if (sidebar.classList.contains("hidden")) {
-                    mainContent.style.marginLeft = "0";
-                } else {
-                    mainContent.style.marginLeft = "250px";
-                }
-            });
-        });
+        document.getElementById("hamburger").addEventListener("click", toggleSidebar);
     </script>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
