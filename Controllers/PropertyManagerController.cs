@@ -40,6 +40,12 @@ namespace PMS.Controllers
             return View();
         }
 
+        public IActionResult PMEditProfile()
+        {
+            return View();
+        }
+
+
 
     }
 }
