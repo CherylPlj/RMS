@@ -2,104 +2,22 @@
     ViewData["Title"] = "Cozy Homes - Tenants";
     Layout = "~/Views/Shared/_LayoutPM.cshtml";
 }
-<head>
 
-<style>
-
-
-      
-        /* Table Styling */
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-            font-size: 16px;
-        }
-
-
-        th {
-            background-color: #b0836e;
-            color: white;
-            font-weight: bold;
-        }
-        /* Buttons */
-        .button-container {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-start;
-            padding-left: 60%;
-            margin-top: 35px;
-            /* width: auto; */
-        }
-
-        .pagination-btn {
-            background-color: transparent;
-            color: #B0836E;
-            border: 2px solid #B0836E;
-            padding: 7px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-family: 'Poppins';
-            width: 10%;
-        }
-
-            .pagination-btn:hover {
-                background-color: #7c4e39;
-                color: #fff;
-                border-color: #7c4e39;
-            }
-
-        .invoice-button, .pay-button {
-            white-space: nowrap;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 85%;
-            font-family: 'Poppins';
-            font-size: 16px;
-        }
-
-        .invoice-button {
-            background-color: transparent;
-            color: #B0836E;
-            border: 2px solid #B0836E;
-        }
-
-        .pay-button {
-            background-color: #B0836E;
-            color: #fff;
-            border: none;
-        }
-
-            .pay-button:hover, .invoice-button:hover {
-                background-color: #7c4e39;
-                color: #fff;
-                border-color: #7c4e39;
-            }
-
-    </style>
-
-</head>
 <div class="tenants-page">
-    <h2>Tenants Management</h2>
-    <button asp-controller="PropertyManager" asp-action="AddTenant" class="btn btn-primary">Add New Tenant</button>
-    <button class="btn btn-secondary" onclick="exportToCSV()">Export to CSV</button>
-    <button class="btn btn-secondary" onclick="exportToPDF()">Export to PDF</button>
-    <input type="text" id="tenantSearch" placeholder="Search tenants..." class="form-control" />
+    <h1>Tenants Management</h1>
+    @* <button asp-controller="PropertyManager" asp-action="AddTenant" class="pay-button">Add New Tenant</button> *@
+    @* <button class="button" onclick="exportToCSV()">Export to CSV</button> *@
+    @* <button class="pay-button" onclick="exportToPDF()">Export to PDF</button> *@
 
-    <table class="tenants-table">
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button class="search-button" onclick="searchTable()"><i class="fas fa-search"></i></button>
+        <button class="search-button" onclick="exportToPDF()">Export to PDF</button>
+        <button class="search-button" onclick="exportToCSV()">Export to CSV</button>
+
+    </div>
+
+    <table>
         <thead>
             <tr>
                 <th>Tenant Name</th>
@@ -123,10 +41,12 @@
                 <td>$1,200</td>
                 <td>$0</td>
                 <td>Active</td>
-                <td>
-                    <a asp-controller="PropertyManager" asp-action="ViewTenant" asp-route-id="1" class="pagination-btn">View</a>
-                    <a asp-controller="PropertyManager" asp-action="EditTenant" asp-route-id="1" class="pagination-btn">Edit</a>
-                    <a asp-controller="PropertyManager" asp-action="DeleteTenant" asp-route-id="1" class="pagination-btn" onclick="return confirm('Are you sure?')">Delete</a>
+                <td style="flex-direction: row">
+                    <span> 
+                    <a class="search-button"><i class="fas fa-eye"></i></a>
+                    <a class="add-lease-button"><i class="fas fa-pencil"></i></a>
+                        <a class="search-button" onclick="return confirm('Are you sure?')"><i class="fas fa-trash"></i></a>
+                    </span>
                 </td>
             </tr>
             <!-- Add more rows dynamically -->
@@ -154,12 +74,12 @@
 
 <!-- Add Tenant Modal -->
 <!-- Modal Code (same as above) -->
-<!-- Button to trigger modal -->
+<!-- Button to trigger modal
 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addTenantModal">
     Add Tenant
-</button>
+</button>  -->
 
-<!-- Table -->
+<!-- Table
 <table class="tenants-table">
     <thead>
         <tr>
@@ -169,11 +89,11 @@
             <th>Lease End</th>
             <th>Status</th>
         </tr>
-    </thead>
-    <tbody>
-        <!-- Existing tenant rows -->
+    </thead>  -->
+<!--  <tbody>
+        <!-- Existing tenant rows 
     </tbody>
-</table>
+    </table> -->
 
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>

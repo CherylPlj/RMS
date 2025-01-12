@@ -1,9 +1,12 @@
 ﻿/* Consolidated CSS */
-import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* General reset */
 html, body {
     height: 100%;
     margin: 0;
+}
+body {
+    margin-left: 200px;
 }
 body, ul {
     margin: 0;
@@ -264,63 +267,6 @@ h2 {
         cursor: pointer;
     }
 
-/* Buttons */
-.button-container {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-start;
-    padding-left: 60%;
-    margin-top: 35px;
-    /* width: auto; */
-}
-
-.pagination-btn {
-    background-color: transparent;
-    color: #B0836E;
-    border: 2px solid #B0836E;
-    padding: 7px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-family: 'Poppins';
-    width: 10%;
-}
-
-    .pagination-btn:hover {
-        background-color: #7c4e39;
-        color: #fff;
-        border-color: #7c4e39;
-    }
-
-.invoice-button, .pay-button {
-    white-space: nowrap;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 85%;
-    font-family: 'Poppins';
-    font-size: 16px;
-}
-
-.invoice-button {
-    background-color: transparent;
-    color: #B0836E;
-    border: 2px solid #B0836E;
-}
-
-.pay-button {
-    background-color: #B0836E;
-    color: #fff;
-    text-align: center;
-    justify-content: center;
-    border: none;
-}
-
-    .pay-button:hover, .invoice-button:hover {
-        background-color: #7c4e39;
-        color: #fff;
-        border-color: #7c4e39;
-    }
 
 /* Table Styling */
 table {
@@ -376,25 +322,53 @@ th {
     }
 
 
-/* Footer */
-footer {
+
+.view-button, .add-lease-button, .delete-button, .search-button {
     background-color: #B0836E;
-    color: #ffd8bd;
-    padding: 20px 0;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-    footer p {
-        text-align: center;
+    .view-button:hover, .add-lease-button:hover, .delete-button:hover, .search-button:hover {
+        background-color: #8a5c3c;
+    }
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+    .search-container input {
+        padding: 5px;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
     }
 
-    footer a {
-        color: whitesmoke;
-        text-decoration: none;
-    }
+.search-button {
+    margin-right: 10px; /* Add margin to separate the buttons */
+}
 
-        footer a:hover {
-            text-decoration: underline;
-        }
 
 
 /* Stats Cards */
@@ -492,3 +466,22 @@ footer {
         text-decoration: none;
     }
 
+/* Footer */
+footer {
+    background-color: #B0836E;
+    color: #ffd8bd;
+    padding: 20px 0;
+}
+
+    footer p {
+        text-align: center;
+    }
+
+    footer a {
+        color: whitesmoke;
+        text-decoration: none;
+    }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
