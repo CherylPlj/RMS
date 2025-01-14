@@ -13,15 +13,16 @@ body, ul {
     padding: 0;
     font-family: "Poppins", sans-serif;
 }
-main {
+.container {
     flex: 1;
     background: white;
-    margin: 10px auto;
+    margin-left: 185px;
     width: 90%;
     max-width: 1000px;
-    border-radius: 8px;
+    margin-bottom: 50px;
+    /*    border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    padding: 10px;*/
 }
 
 /* Top Bar Header */
@@ -471,6 +472,7 @@ footer {
     background-color: #B0836E;
     color: #ffd8bd;
     padding: 20px 0;
+    flex-grow: 2;
 }
 
     footer p {

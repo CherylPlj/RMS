@@ -1,17 +1,17 @@
 ﻿@{
-    ViewData["Title"] = "Cozy Homes - Dashboard";
+    ViewData["Title"] = "Cozy Homes - Users";
     Layout = "~/Views/Shared/_LayoutPM.cshtml";
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Management</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
+@* <!DOCTYPE html> *@
+@* <html lang="en"> *@
+@* <head> *@
+@*     <meta charset="UTF-8"> *@
+@*     <meta name="viewport" content="width=device-width, initial-scale=1.0"> *@
+@*     <title>User Management</title> *@
+@*     <link rel="stylesheet" href="styles.css"> *@
+@* </head> *@
+@* <body> *@
+@*     <div class="container"> *@
         <h1>User Management</h1>
         <table>
             <thead>
@@ -30,11 +30,12 @@
                     <td>john_doe</td>
                     <td>john@example.com</td>
                     <td>
-                        <select>
-                            <option value="tenant">Tenant</option>
-                            <option value="property_manager">Property Manager</option>
-                            <option value="maintenance_staff">Maintenance Staff</option>
-                        </select>
+                        Tenant
+                        @* <select> *@
+                        @*     <option value="tenant">Tenant</option> *@
+                        @*     <option value="property_manager">Property Manager</option> *@
+                        @*     <option value="maintenance_staff">Maintenance Staff</option> *@
+                        @* </select> *@
                     </td>
                     <td>
                         <select>
@@ -42,18 +43,19 @@
                             <option value="inactive">Inactive</option>
                         </select>
                     </td>
-                    <td><button class="invoice-button">Update</button></td>
+                    <td><button class="view-button">Update</button></td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>jane_smith</td>
                     <td>jane@example.com</td>
                     <td>
-                        <select>
-                            <option value="tenant">Tenant</option>
-                            <option value="property_manager">Property Manager</option>
-                            <option value="maintenance_staff">Maintenance Staff</option>
-                        </select>
+                        Staff
+                        @* <select> *@
+                        @*     <option value="tenant">Tenant</option> *@
+                        @*     <option value="property_manager">Property Manager</option> *@
+                        @*     <option value="maintenance_staff">Maintenance Staff</option> *@
+                        @* </select> *@
                     </td>
                     <td>
                         <select>
@@ -61,12 +63,12 @@
                             <option value="inactive">Inactive</option>
                         </select>
                     </td>
-                    <td><button class="invoice-button">Update</button></td>
+                    <td><button class="view-button">Update</button></td>
                 </tr>
                 <!-- More rows as needed -->
             </tbody>
         </table>
-    </div>
+    @* </div> *@
 
     <script>
                 // script.js
@@ -76,7 +78,7 @@
                 const userId = row.cells[0].textContent;
                 const username = row.cells[1].textContent;
                 const email = row.cells[2].textContent;
-                const role = row.querySelector('select').value;
+                const role = row.cells[3].value;
                 const status = row.querySelectorAll('select')[1].value;
 
                 alert(`Updating user ${username} (ID: ${userId})\nEmail: ${email}\nRole: ${role}\nStatus: ${status}`);
@@ -86,5 +88,5 @@
         });
 
     </script>
-</body>
-</html>
+@* </body> *@
+@* </html> *@

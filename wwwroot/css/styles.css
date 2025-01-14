@@ -88,13 +88,20 @@ body, ul {
     background-color: #e7e1d3;
 }
 
+/* Apply for Leasing Page */
+/*.lease {
+    padding: 40px 10px;
+    background-color: #e7e1d3;
+}
+*/
 .pay-container, .maintenance-container {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #f2f2f2;
+/*    background-color: #f2f2f2; */
+    background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 

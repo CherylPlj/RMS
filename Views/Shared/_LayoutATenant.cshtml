@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#000000" />
     <!-- Font Awesome CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/styles.css">
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true">
   
 </head>
 <body>
@@ -39,7 +39,7 @@
                         </a>
                         <div class="dropdown-content">
                             <a asp-controller="ATenant" asp-action="ATenantEditProfile">Edit Profile</a>
-                            <a asp-controller="Login" asp-action="Logout">Log Out</a>
+                            <a asp-controller="Login" asp-action="Logout" class="logout" onclick="return confirmLogout(event);">Log Out</a>
                         </div>
                     </li>
                 </ul>
@@ -60,6 +60,15 @@
             
         </div>
     </footer>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);">
+        <div style="margin: 20% auto; padding: 20px; background: white; width: 300px; text-align: center;">
+            <p>Are you sure you want to logout?</p>
+            <button onclick="logoutConfirmed()">Yes</button>
+            <button onclick="closeModal()">No</button>
+        </div>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -102,6 +111,16 @@
             // Simulate a successful lease termination action
             closePopup('terminate-lease-popup'); // Close the Terminate Lease popup
             showMessage('Your lease has been successfully terminated.');
+        }
+
+           // Logout Confirmation
+        function confirmLogout(event) {
+            const confirmation = confirm("Are you sure you want to log out?");
+            if (!confirmation) {
+                // Prevent the default action if the user cancels
+                event.preventDefault();
+            }
+            return confirmation;
         }
     </script>
     </body>

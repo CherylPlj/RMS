@@ -17,35 +17,37 @@
 </head>
 
 
-<header>
-    <!-- Top Header -->
-    <div class="top-header" style="position: sticky; ">
-        <!-- Optional: Add top header content here -->
-    </div>
+<body>
 
-    <!-- Main Header -->
+    <header>
+        <!-- Top Header -->
+        <div class="top-header" style="position: sticky; ">
+            <!-- Optional: Add top header content here -->
+        </div>
+
+        <!-- Main Header -->
         <div class="main-header" style="position: sticky; ">
             <!-- Sidebar Header: Logo and Brand -->
-        <div class="sidebar-header" >
+            <div class="sidebar-header">
                 <img src="~/images/cozy-logo.png" alt="logo">
                 <h1>Cozy Homes</h1>
-            <div class="hamburger-icon" id="hamburger" >
-                    <i class="fas fa-bars"></i>
-                </div>
+                <!--<div class="hamburger-icon" id="hamburger" >
+                        <i class="fas fa-bars"></i>
+                    </div>  -->
 
             </div>
 
             <!-- Navigation and Profile -->
             <nav>
                 <ul>
-                    <li class="dropdown" >
+                    <li class="dropdown">
                         <a href="#" class="dropbtn" aria-label="User Profile">
                             <img src="~/images/user-pic.png" alt="logo">
                             Profile
                         </a>
                         <div class="dropdown-content">
                             <a asp-controller="PropertyManager" asp-action="PMEditProfile">Edit Profile</a>
-                            <a asp-controller="Login" asp-action="Logout">Log Out</a>
+                            <a asp-controller="Login" asp-action="Logout" class="logout" onclick="return confirmLogout(event);">Log Out</a>
                         </div>
                     </li>
                 </ul>
@@ -53,79 +55,88 @@
         </div>
 
 
-    <div class="sidebar" id="sidebar">
-        <ul>
-            <li>
-                <a asp-controller="PropertyManager" asp-action="PMDashboard" class="nav-link">
-                    <i class="fas fa-dashboard"></i>
-                    <span class="link-text">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="PropertyManager" asp-action="PMmanageUnits" class="nav-link">
-                    <i class="fas fa-house"></i>
-                    <span class="link-text">Units</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="PropertyManager" asp-action="PMTenants" class="nav-link">
-                    <i class="fas fa-people-roof"></i>
-                    <span class="link-text">Tenants</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="PropertyManager" asp-action="PMManageLease" class="nav-link">
-                    <i class="fas fa-clipboard"></i>
-                    <span class="link-text">Lease</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="PropertyManager" asp-action="PMPayments" class="nav-link">
-                    <i class="fas fa-receipt"></i>
-                    <span class="link-text">Payments</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="PropertyManager" asp-action="PMRequest" class="nav-link">
-                    <i class="fas fa-hammer"></i>
-                    <span class="link-text">Request</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="PropertyManager" asp-action="PMAssignMaintenance" class="nav-link">
-                    <i class="fas fa-wrench"></i>
-                    <span class="link-text">Staff</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="PropertyManager" asp-action="PMManageUsers" class="nav-link">
-                    <i class="fas fa-user"></i> <!-- Adjusted icon to a more relevant user icon -->
-                    <span class="link-text">Users</span>
-                </a>
-            </li>
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li>
+                    <a asp-controller="PropertyManager" asp-action="PMDashboard" class="nav-link">
+                        <i class="fas fa-dashboard"></i>
+                        <span class="link-text">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="PropertyManager" asp-action="PMmanageUnits" class="nav-link">
+                        <i class="fas fa-house"></i>
+                        <span class="link-text">Units</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="PropertyManager" asp-action="PMTenants" class="nav-link">
+                        <i class="fas fa-people-roof"></i>
+                        <span class="link-text">Tenants</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="PropertyManager" asp-action="PMManageLease" class="nav-link">
+                        <i class="fas fa-clipboard"></i>
+                        <span class="link-text">Lease</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="PropertyManager" asp-action="PMPayments" class="nav-link">
+                        <i class="fas fa-receipt"></i>
+                        <span class="link-text">Payments</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="PropertyManager" asp-action="PMRequest" class="nav-link">
+                        <i class="fas fa-hammer"></i>
+                        <span class="link-text">Request</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="PropertyManager" asp-action="PMAssignMaintenance" class="nav-link">
+                        <i class="fas fa-wrench"></i>
+                        <span class="link-text">Staff</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="PropertyManager" asp-action="PMManageUsers" class="nav-link">
+                        <i class="fas fa-user"></i> <!-- Adjusted icon to a more relevant user icon -->
+                        <span class="link-text">Users</span>
+                    </a>
+                </li>
 
-        </ul>
-    </div>
-</header>
-<body>
-    <main> 
-    <section class="body">
+            </ul>
+        </div>
+    </header>
+
+    @* <main>  *@
+    @* <section class="body"> *@
         <div class="container">
-            <main role="main" class="pb-3">
+            <main role="main" class="container">
                 @RenderBody()
             </main>
         </div>
 
-    </section>
-    </main>
+    @* </section> *@
+    @* </main> *@
     <section> 
     <!-- Footer -->
     <footer>
-        <div class="container" style="position: sticky; bottom:0; ">
+        @* <div class="container" style="position: sticky; bottom:0; "> *@
             <p>&copy; 2025 Cozy Homes. All rights reserved.</p>
-        </div>
+        @* </div> *@
     </footer>
     </section>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);">
+        <div style="margin: 20% auto; padding: 20px; background: white; width: 300px; text-align: center;">
+            <p>Are you sure you want to logout?</p>
+            <button onclick="logoutConfirmed()">Yes</button>
+            <button onclick="closeModal()">No</button>
+        </div>
+    </div>
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById("sidebar");
@@ -133,6 +144,17 @@
         }
 
         document.getElementById("hamburger").addEventListener("click", toggleSidebar);
+
+              // Logout Confirmation
+        function confirmLogout(event) {
+            const confirmation = confirm("Are you sure you want to log out?");
+            if (!confirmation) {
+                // Prevent the default action if the user cancels
+                event.preventDefault();
+            }
+            return confirmation;
+        }
+
     </script>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
