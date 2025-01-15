@@ -29,6 +29,8 @@
         }
 
         .container {
+            margin-top: 30px;
+            margin-bottom: 30px;
             background-color: #fff;
             padding: 40px;
             border-radius: 5px;
@@ -151,11 +153,30 @@
             font-weight: bold;
             color: #B0836E;
         }
+
+        ul.validation-summary-errors {
+            list-style-type: none; /* Removes the dot (bullet) */
+            padding-left: 0; /* Removes the indentation */
+        }
+
+        .validation-summary-errors li {
+            color: red; /* Optional: set the text color to red */
+            font-weight: bold; /* Optional: make the error messages bold */
+        }
+
+        /* .text-danger { */
+        /*     color: red; */
+        /*     font-weight: 400; */
+        /* } */
+
     </style>
 </head>
 
 <body>
+    @Html.ValidationSummary(true, "", new { @class = "validation-summary-errors" })
+
     <div class="container">
+       
         <div class="logo">
             <img src="~/images/cozy-logo.png" alt="Cozy Homes Logo">
             <span class="logo">Cozy Homes</span>
@@ -167,6 +188,7 @@
         <!-- New User Registration Form-->
         <form asp-action="RegisterUser" method="post">
             <div class="form-group">
+
                 <div style="display: flex; justify-content: space-between;">
                     <div style="width: 48%;">
                         <label for="first-name">First Name</label>

@@ -57,7 +57,7 @@ namespace RMS.Controllers
             }
             else if (user.Role == "Staff")
             {
-                return RedirectToAction("SMaintenanceAssignment", "Staff");
+                return RedirectToAction("SHomePage", "Staff");
             }
             else if (user.Role == "Tenant")
             {
@@ -84,6 +84,14 @@ namespace RMS.Controllers
         [HttpPost]
         public IActionResult RegisterUser(User user)
         {
+            // Check if email already exists
+            var existingUser = _context.Users.FirstOrDefault(u => u.Email == user.Email);
+            if (existingUser != null)
+            {
+                ModelState.AddModelError("", "An account with this email already exists.");
+                return View("Register", user); // Return to the Register page
+            }
+
             // Check if passwords match
             if (user.Password != user.ConfirmPassword)
             {
