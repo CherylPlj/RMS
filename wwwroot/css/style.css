@@ -294,6 +294,7 @@ footer {
     background-color: #B0836E;
     color: #ffd8bd;
     padding: 20px 0;
+    flex-grow: 2;
 }
 
     footer p {
