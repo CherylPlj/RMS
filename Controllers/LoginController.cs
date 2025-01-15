@@ -143,7 +143,7 @@ namespace RMS.Controllers
             }
             else if (user.Role == "Staff")
             {
-                return RedirectToAction("SMaintenanceAssignment", "Staff");
+                return RedirectToAction("SHomePage", "Staff");
             }
             else if (user.Role == "Tenant")
             {

@@ -196,6 +196,7 @@
             </div>
             <div class="form-group">
                 <label>
+                    @* <input type="checkbox" name="TermsAndConditions" value="true" @(Model.TermsAndConditions.HasValue && Model.TermsAndConditions.Value ? "checked" : "")> *@
                     <input type="checkbox" name="TermsAndConditions" value="true" @(Model.TermsAndConditions.HasValue && Model.TermsAndConditions.Value ? "checked" : "")/>
                     I agree to the
                     <a href="javascript:void(0);" id="termsLink">Terms and Conditions</a>

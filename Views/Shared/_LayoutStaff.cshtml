@@ -9,21 +9,23 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" asp-append-version="true">
     @* <link rel="stylesheet" href="homepage.css" asp-append-version="true" /> *@
-    <link rel="stylesheet" href="~/css/site.css"  />
-    <link rel="stylesheet" href="~/css/styles.css"  />
+    @* <link rel="stylesheet" href="~/css/site.css"  /> *@
+    @* <link rel="stylesheet" href="~/css/styles.css"  /> *@
+    <link rel="stylesheet" href="~/css/staff.css"  />
+
 
     <!-- <link rel="stylesheet" href="~/RMS.styles.css" asp-append-version="true" /> -->
 </head>
 
 <body>
     <!-- Top Header -->
-    <div class="top-header">
+    <div class="stop-header">
         <!-- Optional: Add top header content here -->
     </div>
 
     <!-- Main Header -->
     <header>
-        <div class="main-header">
+        <div class="smain-header">
             <!-- Logo -->
             <div class="logo">
                 <img src="~/images/cozy-logo.png" alt="logo" style="height: 20px; width: 50px;">
@@ -33,14 +35,15 @@
             <!-- Navigation -->
             <nav>
                 <ul>
-                    <li><a asp-controller="Staff" asp-action="SMaintenanceAssignment">Maintenance Assignment</a></li>
-                    <li><a asp-controller="Staff" asp-action="SMaintenanceHistory">Maintenance History</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">
+                    <li><a asp-controller="Staff" asp-action="SHomePage">Home</a></li>
+                    <li><a asp-controller="Staff" asp-action="SMaintenanceAssignment">Assignment</a></li>
+                    <li><a asp-controller="Staff" asp-action="SMaintenanceHistory">Requests</a></li>
+                    <li class="s-dropdown">
+                        <a href="#" class="s-dropbtn">
                             <img src="~/images/user-pic.png" alt="logo" style="height: 35px; width: 35px;">
                             Profile
                         </a>
-                        <div class="dropdown-content">
+                        <div class="sdropdown-content">
                             <a asp-controller="Staff" asp-action="SEditProfile">Edit Profile</a>
                             <a asp-controller="Login" asp-action="Logout" class="logout" onclick="return confirmLogout(event);">Log Out</a>
                         </div>
@@ -50,7 +53,7 @@
         </div>
     </header>
 
-    <div class="container">
+    <div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

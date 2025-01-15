@@ -4,6 +4,10 @@ namespace RMS.Controllers
 {
     public class StaffController : Controller
     {
+        public IActionResult SHomePage()
+        {
+            return View();
+        }
         public IActionResult SMaintenanceAssignment()
         {
             return View();
