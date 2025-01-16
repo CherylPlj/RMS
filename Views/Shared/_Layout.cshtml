@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,22 +10,24 @@
     <meta name="theme-color" content="#000000" />
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" asp-append-version="true">
-    @* <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" /> *@
-    @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> *@
-    <link rel="stylesheet" href="~/css/ptenant.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <!-- Add SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.all.min.js"></script>
 
     <!-- <link rel="stylesheet" href="~/RMS.styles.css" asp-append-version="true" /> -->
 </head>
 
 <body>
     <!-- Top Header -->
-    <div class="ptop-header">
+    <div class="top-header">
         <!-- Optional: Add top header content here -->
     </div>
 
     <!-- Main Header -->
     <header>
-        <div class="pmain-header">
+        <div class="main-header">
             <!-- Logo -->
             <div class="logo">
                 <img src="~/images/cozy-logo.png" alt="logo" style="height: 20px; width: 50px;">
@@ -36,21 +40,32 @@
                     <li><a asp-controller="PTenant" asp-action="PTenantHomePage">Home</a></li>
                     <li><a asp-controller="PTenant" asp-action="PTenantUnits">Units</a></li>
                     <li><a asp-controller="PTenant" asp-action="PTenantDetails">About</a></li>
-                    <li><a asp-controller="Login" asp-action="Register">Sign Up</a></li>
+                    @if (Context.Session.GetInt32("UserId") == null)
+                    {
+                        <!-- Display Login and Sign Up when user is not logged in -->
+                        <li><a asp-controller="Login" asp-action="Login">Sign In</a></li>
+                        <li><a asp-controller="Login" asp-action="Register">Sign Up</a></li>
+                    }
+                    else
+                    {
+                        <!-- Display "Contact" when user is logged in -->
+                        <li><a asp-controller="Login" asp-action="Logout">Logout</a></li>
+                    }
+
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="layout-container" style="display: flex;flex-wrap: wrap;justify-content: center; margin: 0; min-width: 100%; min-height: 100vh; text-align: center;">
+        <main role="main" class="pb-3" style="min-width: 100%;min-height: 100%;">
             @RenderBody()
         </main>
     </div>
 
     <!-- Footer -->
     <footer>
-        <div>
+        <div class="container">
             <p>&copy; 2025 Cozy Homes. All rights reserved.</p>
         </div>
     </footer>
@@ -58,6 +73,5 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-    
 </body>
 </html>

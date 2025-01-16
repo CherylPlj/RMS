@@ -22,6 +22,12 @@ namespace RMS.Controllers
         {
             return View();
         }
+
+        public IActionResult Category(string category)
+        {
+            ViewBag.Category = category; // Pass the section to the view
+            return View();
+        }
     }
 
 }

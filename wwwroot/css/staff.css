@@ -5,7 +5,10 @@ body, ul {
     padding: 0;
     font-family: "Poppins", sans-serif;
 }
-
+.container {
+    margin-left: 30px;
+    margin-right: 30px;
+}
 /* --------------------------------------- HEADER --------------------------------------------- */
 /* Top Bar Header */
 .stop-header {
@@ -207,3 +210,117 @@ footer {
         footer a:hover {
             text-decoration: underline;
         }
+/*Assignment Page*/
+/*#assignment-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}*/
+/* Header panel to keep everything aligned */
+.header-panel {
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    /* Aligning Maintenance Assignment text */
+    .header-panel h2 {
+        font-size: 24px;
+        margin: 0;
+        flex-grow: 1; /* Let the heading grow and take remaining space */
+    }
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+    .search-bar input {
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .search-bar button {
+        font-size: 16px;
+        margin-left: 1px;
+        margin-right: 20px;
+        padding: 5px 10px;
+        background-color: #B0836E;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .search-bar button:hover {
+            border-color: #B0836E;
+            background-color: beige;
+            color: black;
+        }
+
+/* Table styles */
+.table-container table {
+    width: 93.5%;
+    justify-content: center;
+    border-collapse: collapse;
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+.table-container th, .table-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table-container th {
+    background-color: #B0836E;
+    color: white;
+    font-weight: bold;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+    .pagination button {
+        padding: 10px 15px;
+        margin: 0 5px;
+        border: none;
+        background-color: #B0836E;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+        .pagination button:hover {
+            border: 1px;
+            border-color: #B0836E;
+            background-color: transparent;
+            color: black;
+        }
+
+/* Date dropdown alignment */
+.dropdown-container {
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 30px;
+}
+
+select {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}

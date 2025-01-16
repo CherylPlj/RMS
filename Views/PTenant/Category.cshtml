@@ -1,0 +1,207 @@
+﻿@* // @using Azure.Core  *@
+@{
+    //Layout = null; // Disable the layout for this view
+    ViewData["Title"] = "Cozy Homes - Units Category";
+    // string category = Request.Query["category"]; Retrieve the section from the query string
+    var query = Context.Request.Query["category"]; // Retrieve the category from the query string
+    string category = query.Count > 0 ? query[0] : null; // Ensure safe retrieval
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<head>
+    <style>
+        section {
+            padding: 50px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<h1>Unit Categories</h1>
+<nav>
+    <a href="#condominium">Condominium</a> |
+    <a href="#duplex">Duplex</a> |
+    <a href="#bungalow">Bungalow</a> |
+    <a href="#beach-house">Beach House</a> 
+
+</nav>
+<!-- Homes List -->
+<section class="select-home">
+    <div class="list-container">
+        <!--Condo Category-->
+        <h2>Condominium</h2>
+
+        <section id="condominium">
+            <div class="home-card">
+                <img src="~/images/flat.png" alt="House 1">
+                <div class="card-content">
+                    <a asp-controller="PTenant" asp-action="PTenantDetails">
+
+                        <h2>Oceanview Retreat</h2>
+                        <div class="card-details">
+
+                            <i class="fas fa-bed"></i> <span>4 Units</span>
+                            <i class="fa-solid fa-building"></i> <span>20 Rooms</span>
+                        </div>
+                        <p>
+                            Welcome to Oceanview Retreat, an exquisite beachfront
+                            property located in the vibrant city of Miami, Florida.
+                            Situated along the pristine shores of the Atlantic Ocean...
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="home-card">
+                <img src="~/images/poolhouse.png" alt="House 2">
+                <div class="card-content">
+                    <h2>Oceanview Retreat</h2>
+                    <div class="card-details">
+                        <i class="fas fa-bed"></i> <span>4 Units</span>
+                        <i class="fa-solid fa-building"></i> <span>20 Rooms</span>
+                    </div>
+                    <p>
+                        Welcome to Oceanview Retreat, an exquisite beachfront
+                        property located in the vibrant city of Miami, Florida.
+                        Situated along the pristine shores of the Atlantic Ocean...
+                    </p>
+                </div>
+            </div>
+        </section>
+</section>
+<section class="select-home">
+
+        <!--Duplex Category-->
+        <h2>Duplex</h2>
+
+        <section id="duplex">
+
+            <div class="home-card">
+                <img src="~/images/treehouse.png" alt="House 3">
+                <div class="card-content">
+                    <h2>Oceanview Retreat</h2>
+                    <div class="card-details">
+                        <i class="fas fa-bed"></i> <span>4 Units</span>
+                        <i class="fa-solid fa-building"></i> <span>20 Rooms</span>
+                    </div>
+                    <p>
+                        Welcome to Oceanview Retreat, an exquisite beachfront
+                        property located in the vibrant city of Miami, Florida.
+                        Situated along the pristine shores of the Atlantic Ocean...
+                    </p>
+                </div>
+            </div>
+
+            <div class="home-card">
+                <img src="~/images/bungalow.png" alt="House 4">
+                <div class="card-content">
+                    <h2>Oceanview Retreat</h2>
+                    <div class="card-details">
+                        <i class="fas fa-bed"></i> <span>4 Units</span>
+                        <i class="fa-solid fa-building"></i> <span>20 Rooms</span>
+                    </div>
+                    <p>
+                        Welcome to Oceanview Retreat, an exquisite beachfront
+                        property located in the vibrant city of Miami, Florida.
+                        Situated along the pristine shores of the Atlantic Ocean...
+                    </p>
+                </div>
+            </div>
+        </section>
+        </section>
+
+<section class="select-home">
+
+        <!--Bungalow Category-->
+        <h2>Bungalow</h2>
+
+        <section id="bungalow">
+
+            <div class="home-card">
+                <img src="~/images/flat.png" alt="House 1">
+                <div class="card-content">
+                    <h2>Oceanview Retreat</h2>
+                    <div class="card-details">
+                        <i class="fas fa-bed"></i> <span>4 Units</span>
+                        <i class="fa-solid fa-building"></i> <span>20 Rooms</span>
+                    </div>
+                    <p>
+                        Welcome to Oceanview Retreat, an exquisite beachfront
+                        property located in the vibrant city of Miami, Florida.
+                        Situated along the pristine shores of the Atlantic Ocean...
+                    </p>
+                </div>
+            </div>
+
+            <div class="home-card">
+                <img src="~/images/poolhouse.png" alt="House 2">
+                <div class="card-content">
+                    <h2>Oceanview Retreat</h2>
+                    <div class="card-details">
+                        <i class="fas fa-bed"></i> <span>4 Units</span>
+                        <i class="fa-solid fa-building"></i> <span>20 Rooms</span>
+                    </div>
+                    <p>
+                        Welcome to Oceanview Retreat, an exquisite beachfront
+                        property located in the vibrant city of Miami, Florida.
+                        Situated along the pristine shores of the Atlantic Ocean...
+                    </p>
+                </div>
+            </div>
+        </section>
+        </section>
+
+<section class="select-home">
+
+        <!--Beach house Category-->
+        <h2>Beach House</h2>
+
+        <section id="beach-house">
+            <div class="home-card">
+                <img src="~/images/treehouse.png" alt="House 3">
+                <div class="card-content">
+                    <h2>Oceanview Retreat</h2>
+                    <div class="card-details">
+                        <i class="fas fa-bed"></i> <span>4 Units</span>
+                        <i class="fa-solid fa-building"></i> <span>20 Rooms</span>
+                    </div>
+                    <p>
+                        Welcome to Oceanview Retreat, an exquisite beachfront
+                        property located in the vibrant city of Miami, Florida.
+                        Situated along the pristine shores of the Atlantic Ocean...
+                    </p>
+                </div>
+            </div>
+
+            <div class="home-card">
+                <img src="~/images/bungalow.png" alt="House 4">
+                <div class="card-content">
+                    <h2>Oceanview Retreat</h2>
+                    <div class="card-details">
+                        <i class="fas fa-bed"></i> <span>4 Units</span>
+                        <i class="fa-solid fa-building"></i> <span>20 Rooms</span>
+                    </div>
+                    <p>
+                        Welcome to Oceanview Retreat, an exquisite beachfront
+                        property located in the vibrant city of Miami, Florida.
+                        Situated along the pristine shores of the Atlantic Ocean...
+                    </p>
+                </div>
+            </div>
+    @* </div> *@
+    
+</section>
+</section>
+
+@if (!string.IsNullOrEmpty(category))
+{
+    <script>
+        // Automatically scroll to the specified section
+        window.location.hash = '#@category';
+    </script>
+}
+
