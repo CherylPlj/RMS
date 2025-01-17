@@ -2,60 +2,58 @@
     ViewData["Title"] = "Cozy Homes - Users";
     Layout = "~/Views/Shared/_LayoutPM.cshtml";
 }
+@model List<UserViewModel>
 
-        <h1>User Management</h1>
-        <table>
-            <thead>
+<h1>User Management</h1>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>IsActive</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            int index = 1;
+            foreach (var user in Model)
+            {
                 <tr>
-                    <th>#</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>john_doe</td>
-                    <td>john@example.com</td>
+                    <td>@index</td>
+                    <td>@user.FirstName @user.LastName</td>
+                    <td>@user.Email</td>
+                    <td>@user.Role</td>
                     <td>
-                        Tenant
+                        @user.IsActive
                         @* <select> *@
-                        @*     <option value="tenant">Tenant</option> *@
-                        @*     <option value="property_manager">Property Manager</option> *@
-                        @*     <option value="maintenance_staff">Maintenance Staff</option> *@
+                        @*     <option value="active">Active</option> *@
+                        @*     <option value="inactive">Inactive</option> *@
                         @* </select> *@
                     </td>
-                    <td>
-                        <select>
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
-                        </select>
+                    <td class="action-icons">
+                        <a asp-action="UpdateUserPage" asp-route-id="@user.UserID" title="Edit" style="font-size: 20px;"><i class="fas fa-edit edit"></i></a>
+                        <!-- Form for deleting the unit -->
+                        <form asp-action="DeleteUnit" asp-route-id="@user.UserID" method="post" style="display:inline;">
+                            <button type="submit" title="Delete" style="background: none; border: none; padding: 0; width: fit-content; height: fit-content;">
+                                <i class="fas fa-trash delete" style="font-size: 20px;"></i>
+                            </button>
+                        </form>
                     </td>
-                    <td><button class="view-button">Update</button></td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>jane_smith</td>
-                    <td>jane@example.com</td>
-                    <td>
-                        Staff
-                        @* <select> *@
-                        @*     <option value="tenant">Tenant</option> *@
-                        @*     <option value="property_manager">Property Manager</option> *@
-                        @*     <option value="maintenance_staff">Maintenance Staff</option> *@
-                        @* </select> *@
-                    </td>
-                    <td>
-                        <select>
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
-                        </select>
-                    </td>
-                    <td><button class="view-button">Update</button></td>
-                </tr>
+                index++;
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" style="text-align:center;">No users found.</td>
+            </tr>
+        }   
+
                 <!-- More rows as needed -->
             </tbody>
         </table>
@@ -78,6 +76,63 @@
             });
         });
 
+     document.querySelector(".search-unit-button").addEventListener("click", function () {
+            var searchQuery = document.querySelector("input[type='text']").value;
+
+            // Make an AJAX request to search for units based on the input
+            fetch(`/PropertyManager/SearchUnits?query=${searchQuery}`)
+                .then(response => response.json())
+                .then(data => {
+                    updateUnitsTable(data);
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+
+        // Function to handle input field changes
+        document.querySelector("#searchInput").addEventListener("input", function () {
+            var searchQuery = this.value;
+
+            // If the search input is empty, fetch all units
+            if (searchQuery === "") {
+                fetch(`/PropertyManager/SearchUnits?query=`)
+                    .then(response => response.json())
+                    .then(data => {
+                        updateUnitsTable(data);
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        });
+
+
+        // Update the table with the search results
+        function updateUnitsTable(units) {
+            const tbody = document.querySelector("table tbody");
+            tbody.innerHTML = ''; // Clear the existing rows
+
+            if (units.length > 0) {
+                units.forEach((unit, index) => {
+                    let row = document.createElement('tr');
+                    row.innerHTML = `
+                            <td>${index + 1}</td>
+                            <td>${unit.unitName}</td>
+                            <td>${unit.pricePerMonth}</td>
+                            <td>${unit.unitStatus}</td>
+                            <td class="action-icons">
+                                <a href="/Units/EditUnitPage/${unit.unitId}" title="Edit"><i class="fas fa-edit edit"></i></a>
+                                <form action="/Units/DeleteUnit/${unit.unitId}" method="post" style="display:inline;">
+                                    <button type="submit" title="Delete" style="background: none; border: none;">
+                                        <i class="fas fa-trash delete"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        `;
+                    tbody.appendChild(row);
+                });
+            } else {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No units found.</td></tr>';
+            }
+        }
     </script>
 @* </body> *@
 @* </html> *@

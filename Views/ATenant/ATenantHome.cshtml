@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Cozy Homes - Home";
     Layout = "~/Views/Shared/_LayoutATenant.cshtml";
 }
@@ -265,7 +266,13 @@
     <!-- Banner Section -->
     <section class="banner">
         <img src="~/images/bg.png" alt="Banner Image" class="banner-image">
-        <div class="centered"> <span>Welcome back, MikMik Alexander! </span></div>
+        @* <div class="centered"> *@
+        @*     <span>Welcome back, @User.Identity.Name!</span> *@
+        @* </div> *@
+        <div class="centered">
+            <span>Welcome back, @ViewBag.FirstName!</span>
+        </div>
+
     </section>
 
     <!-- Dashboard -->
