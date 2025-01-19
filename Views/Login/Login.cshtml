@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" asp-append-version="true">
-    <link href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css" rel="stylesheet" asp-append-version="true">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -23,6 +22,7 @@
 
     <!--Font Awesome Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
     @* <link rel="stylesheet" href="~/RMS.auth.css" asp-append-version="true" /> *@
     <style>
 
@@ -44,8 +44,6 @@
         }
 
         .container {
-            margin-top: 20px;
-            margin-bottom: 30px;
             background-color: #fff;
             padding: 40px;
             border-radius: 5px;
@@ -59,7 +57,8 @@
         }
 
         input[type="email"],
-        input[type="password"] {
+        input[type="password"],
+        input[type="text"] {
             width: 100%;
             padding: 12px;
             margin: 10px 0;
@@ -115,27 +114,41 @@
             margin: 0;
             font-weight: bold;
             color: #B0836E;
-            
         }
-            /* Change icon color */
-            /* Change icon color */
-        .toggle-password i
 
-        {
+        span.toggle-password {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            pointer-events: auto;
+            margin-top: 14px;
+            margin-left: 10px;
             color: #B0836E; /* Change to any color you prefer */
         }
 
+        /* input[type="password"] { */
+        /*     padding-right: 40px; /* Leave enough space for the icon */ */
+        /*     width: 100%; /* Ensure consistent width */ */
+        /*     box-sizing: border-box; /* Include padding and border in width */ */
+        /* } */
+        /* Change icon color */ */
+        /* .toggle-password i { */
+        /*     margin-top: 14px; */
+        /*     margin-left: 10px; */
+        /*     color: #B0836E; /* Change to any color you prefer */
+        /* } */
         /* Optionally, change the size of the icon */
         .toggle-password i {
-            font-size: 20px; /* Adjust the size if necessary */
+            font-size: 30px; /* Adjust the size if necessary */
         }
 
         /* Optional: Change color on hover */
         .toggle-password:hover i {
-            color: #007bff; /* Color when hovering over the icon */
+            color: #333; /* Color when hovering over the icon */
         }
 
-        
+        }
     </style>
 </head>
 <body>
@@ -153,18 +166,30 @@
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                <span class="toggle-password" onclick="togglePasswordVisibility('password', this)"
-                      title="Show/Hide Password"
-                      style="position: absolute; top: 38px; right: 15px; margin-right: 10px; cursor: pointer;">
-                    <i class="bx bx-hide"></i>
-                </span>
+                <!-- Password Field -->
+                <div style="width: 100%; position: relative;">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility('password', this)"
+                          title="Show/Hide Password"
+                          style="position: absolute; top: 50%; transform: translateY(-50%); right: 10px; cursor: pointer;">
+                        <i class="bx bx-hide"></i>
+                    </span>
+                </div>
             </div>
+            @* <div class="form-group" style="position: relative;"> *@
+            @*     <label for="password">Password</label> *@
+            @*     <input type="password" id="password" name="password" placeholder="Enter your password" required> *@
+            @*     <span class="toggle-password" onclick="togglePasswordVisibility('password', this)" *@
+            @*           title="Show/Hide Password" *@
+            @*           style="position: absolute; top: 38px; right: 15px; margin-right: 10px; cursor: pointer;"> *@
+            @*         <i class="bx bx-hide"></i> *@
+            @*     </span> *@
+            @* </div> *@
             @* <div class="form-group">
-                <label>
-                    <input type="checkbox"> Remember Me
-                </label>
+            <label>
+            <input type="checkbox"> Remember Me
+            </label>
             </div> *@
             <a asp-controller="Login" asp-action="ForgotPass" class="forgot-password">Forgot Password?</a>
             <!-- <a asp-controller="Home" asp-action="Index" class="login-btn">  </a>-->
