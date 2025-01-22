@@ -12,6 +12,12 @@
     @* <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" /> *@
     @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> *@
     <link rel="stylesheet" href="~/css/pm.css" asp-append-version="true" />
+    <!-- Font Awesome (for the arrow icon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Boxicons (for the password toggle icons) -->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+
 
     <!-- <link rel="stylesheet" href="~/RMS.styles.css" asp-append-version="true" /> -->
 </head>
@@ -41,12 +47,27 @@
             <nav>
                 <ul>
                     <li class="dropdown">
-                        <a href="#" class="dropbtn" aria-label="User Profile">
-                            <img src="~/images/user-pic.png" alt="logo">
-                            Profile
+                        <a href="#" class="dropbtn" aria-label="Notifications">
+                            <i class="fas fa-bell" style="margin-right: 10px;"></i>
+                            Notifications
                         </a>
-                        <div class="dropdown-content">
-                            <a asp-controller="PropertyManager" asp-action="PMEditProfile">Edit Profile</a>
+                        
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn" aria-label="User Profile">
+                            <div style="height: 35px; width: 35px; border-radius: 50%;
+                                    background-color: #555; display: inline-flex;
+                                    align-items: center; justify-content: center;
+                                    font-weight: bold; color: #fff; margin-right: 10px;">
+                                @($"{Context.Session.GetString("FirstName")?.Substring(0, 1)}{Context.Session.GetString("LastName")?.Substring(0, 1)}")
+                            </div>
+                            @* <img src="~/images/user-pic.png" alt="logo"> *@
+                            @* @Context.Session.GetString("FirstName")  *@
+                            @* @Context.Session.GetString("LastName") *@
+
+                        </a>
+                        <div class="dropdown-content"> <!--edit as row instead of column-->
+                            <a asp-controller="PropertyManager" asp-action="PMEditProfile">Profile</a>
                             <a asp-controller="Login" asp-action="Logout" class="logout" onclick="return confirmLogout(event);">Log Out</a>
                         </div>
                     </li>
@@ -80,6 +101,10 @@
                         <i class="fas fa-clipboard"></i>
                         <span class="link-text">Lease</span>
                     </a>
+                    <div class="dropdown-content"> <!--change to something like subtabs-->
+                        <a asp-controller="PropertyManager" asp-action="PMEditProfile">Edit Profile</a>
+                        <a asp-controller="Login" asp-action="Logout" class="logout" onclick="return confirmLogout(event);">Log Out</a>
+                    </div>
                 </li>
                 <li>
                     <a asp-controller="PropertyManager" asp-action="PMPayments" class="nav-link">
@@ -90,7 +115,7 @@
                 <li>
                     <a asp-controller="PropertyManager" asp-action="PMRequest" class="nav-link">
                         <i class="fas fa-hammer"></i>
-                        <span class="link-text">Request</span>
+                        <span class="link-text">Requests</span>
                     </a>
                 </li>
                 <li>

@@ -122,7 +122,7 @@
             transform: translateY(-50%);
             right: 10px;
             pointer-events: auto;
-            margin-top: 14px;
+            margin-top: 16px;
             margin-left: 10px;
             color: #B0836E; /* Change to any color you prefer */
         }
@@ -139,8 +139,8 @@
         /*     color: #B0836E; /* Change to any color you prefer */
         /* } */
         /* Optionally, change the size of the icon */
-        .toggle-password i {
-            font-size: 30px; /* Adjust the size if necessary */
+        span.toggle-password i {
+            font-size: 40px; /* Adjust the size if necessary */
         }
 
         /* Optional: Change color on hover */
@@ -148,7 +148,16 @@
             color: #333; /* Color when hovering over the icon */
         }
 
+        ul.validation-summary-errors {
+            list-style-type: none; /* Removes the dot (bullet) */
+            padding-left: 0; /* Removes the indentation */
         }
+
+        .validation-summary-errors li {
+            color: red; /* Optional: set the text color to red */
+            font-weight: bold; /* Optional: make the error messages bold */
+        }
+
     </style>
 </head>
 <body>
@@ -160,6 +169,19 @@
         <h1>Welcome to</h1>
         <h2>Cozy Homes Rental Management System</h2>
         <p>Please Login to your account.</p>
+
+        @Html.ValidationSummary(true, "", new { @class = "validation-summary-errors" })
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <p>@error.ErrorMessage</p>
+                }
+            </div>
+        }
+
+
         <form asp-action="LoginUser" method="post">
             <div class="form-group">
                 <label for="email">Email</label>
@@ -172,7 +194,7 @@
                     <input type="password" id="password" name="password" placeholder="Enter your password" required>
                     <span class="toggle-password" onclick="togglePasswordVisibility('password', this)"
                           title="Show/Hide Password"
-                          style="position: absolute; top: 50%; transform: translateY(-50%); right: 10px; cursor: pointer;">
+                          style="position: absolute; top: 50%; transform: translateY(-50%); right: 10px; cursor: pointer; font-size: 20px;">
                         <i class="bx bx-hide"></i>
                     </span>
                 </div>
@@ -191,8 +213,9 @@
             <input type="checkbox"> Remember Me
             </label>
             </div> *@
-            <a asp-controller="Login" asp-action="ForgotPass" class="forgot-password">Forgot Password?</a>
+            @* <a asp-controller="Login" asp-action="ForgotPass" class="forgot-password">Forgot Password?</a> *@
             <!-- <a asp-controller="Home" asp-action="Index" class="login-btn">  </a>-->
+            <br />
             <button type="submit" class="login-btn">Log In</button>
 
 

@@ -224,6 +224,129 @@ body, ul {
             background-color: #8b6c56;
         }
 
+/* --------------------------------------- UNITS PAGE --------------------------------------------- */
+/* Unit History */
+.check-home {
+    padding: 10px 0;
+    background-color: #e7e1d3;
+}
+
+.unit-history {
+    background-color: #f1f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    margin: 15px 15px;
+}
+
+.text-alone {
+    color: #323232;
+    margin-top: 5px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 35px;
+    position: relative;
+}
+
+    .text-alone::after {
+        content: '';
+        width: 10%;
+        height: 5px;
+        background: #323232;
+        position: absolute;
+        left: 50%; /* Center it horizontally */
+        bottom: -7px;
+        transform: translateX(-50%); /* Move it back to the left by half its width */
+    }
+
+.contains-units {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.unit-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    width: 300px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+    .unit-card a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .unit-card:hover {
+        transform: scale(1.05);
+    }
+
+    .unit-card img {
+        width: 100%;
+        height: auto;
+    }
+
+.card-stuff {
+    padding: 15px;
+}
+
+.card-dets {
+    display: flex;
+    gap: 10px;
+    padding: 0px 10px;
+    color: #666666;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.card-stuff h2 {
+    font-size: 25px;
+    margin: 0;
+    font-weight: 500;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.card-stuff a {
+    display: inline-block;
+    background-color: #B0836E;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    margin-left: 25%;
+}
+
+.book-btn {
+    background-color: #333;
+    color: #fff;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 35%;
+    width: 30%;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-size: 18px;
+    transition: ease 0.5s;
+}
+
+    .book-btn:hover {
+        opacity: 0.9;
+    }
+
 /* ----------------------------------------- LEASE PAGE ------------------------------------------ */
 .lease {
     padding: 40px 10px;

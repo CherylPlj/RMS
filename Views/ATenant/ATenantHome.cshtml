@@ -270,7 +270,7 @@
         @*     <span>Welcome back, @User.Identity.Name!</span> *@
         @* </div> *@
         <div class="centered">
-            <span>Welcome back, @ViewBag.FirstName!</span>
+            <span>Welcome, @Context.Session.GetString("FirstName") @Context.Session.GetString("LastName")!</span>
         </div>
 
     </section>

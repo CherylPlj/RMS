@@ -22,13 +22,18 @@ namespace RMS.Controllers
         public IActionResult ATenantHome()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var user = _context.Users.FirstOrDefault(u => u.UserID.ToString() == userId);
+            var user = _context.Users.FirstOrDefault(u => u.Id.ToString() == userId);
 
             if (user != null)
             {
                 ViewBag.FirstName = user.FirstName;
             }
 
+            return View();
+        }
+
+        public IActionResult ATenantUnits()
+        {
             return View();
         }
 
@@ -48,8 +53,12 @@ namespace RMS.Controllers
         {
             return View();
         }
-        
+        public IActionResult ATenantChangePassword()
+        {
+            return View();
+        }
 
-      
+
+
     }
 }

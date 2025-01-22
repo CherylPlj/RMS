@@ -1,9 +1,13 @@
-﻿
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using RMS.Controllers;
+using System.ComponentModel.DataAnnotations;
+
 namespace RMS.Models
 {
     public class UserViewModel
     {
-        public int UserID { get; set; } // Primary Key
+        public int Id { get; set; } // Primary Key
         public string? FirstName { get; set; } // User's first name
         public string? LastName { get; set; } // User's last name
         public int? UnitId { get; set; }
@@ -12,5 +16,6 @@ namespace RMS.Models
         public string? PhoneNumber { get; set; }
         public string? Role { get; set; }
         public bool IsActive { get; set; } = true; // Default value is true
+        public string? Password { get; set; } // User's password (hashed)
     }
 }

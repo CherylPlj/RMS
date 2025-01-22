@@ -79,5 +79,11 @@ namespace RMS.Controllers
         {
             return View();
         }
+
+        public IActionResult PTenantContacts()
+        {
+            return View();
+        }
     }
 }
+

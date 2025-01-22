@@ -101,7 +101,7 @@ namespace RMS.Controllers
                     .Where(u => u.Role != "Tenant")
                     .Select(u => new UserViewModel
                     {
-                        UserID = u.UserID,
+                        Id = u.Id,
                         FirstName = u.FirstName,
                         LastName = u.LastName,
                         Email = u.Email,

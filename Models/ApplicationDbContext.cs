@@ -15,6 +15,7 @@ namespace RMS.Models
         public DbSet<MaintenanceRequest> MaintenanceRequests { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Profile> UserProfiles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
